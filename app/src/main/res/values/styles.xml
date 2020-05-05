@@ -8,4 +8,25 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="LabelStyle" parent="AppTheme">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/label_text_size</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_marginStart">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+    </style>
+
+    <style name="MultilineTextView" parent="AppTheme">
+        <item name="android:singleLine">false</item>
+        <item name="android:textSize">@dimen/multiline_text_size</item>
+        <item name="android:textColor">@color/multilineTextColor</item>
+        <item name="android:layout_marginStart">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingStart">@dimen/multiline_text_view_big_padding</item>
+        <item name="android:paddingLeft">@dimen/multiline_text_view_big_padding</item>
+        <item name="android:paddingEnd">@dimen/multiline_text_view_small_padding</item>
+        <item name="android:paddingRight">@dimen/multiline_text_view_small_padding</item>
+    </style>
 </resources>
