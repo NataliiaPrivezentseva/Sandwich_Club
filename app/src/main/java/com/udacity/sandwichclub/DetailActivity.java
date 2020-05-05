@@ -25,30 +25,30 @@ public class DetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent == null) {
             closeOnError();
+        } else {
+            int position = intent.getIntExtra(EXTRA_POSITION, DEFAULT_POSITION);
+            if (position == DEFAULT_POSITION) {
+                // EXTRA_POSITION not found in intent
+                closeOnError();
+                return;
+            }
+
+            String[] sandwiches = getResources().getStringArray(R.array.sandwich_details);
+            String json = sandwiches[position];
+            Sandwich sandwich = JsonUtils.parseSandwichJson(json);
+            if (sandwich == null) {
+                // Sandwich data unavailable
+                closeOnError();
+                return;
+            }
+
+            populateUI();
+            Picasso.with(this)
+                    .load(sandwich.getImage())
+                    .into(ingredientsIv);
+
+            setTitle(sandwich.getMainName());
         }
-
-        int position = intent.getIntExtra(EXTRA_POSITION, DEFAULT_POSITION);
-        if (position == DEFAULT_POSITION) {
-            // EXTRA_POSITION not found in intent
-            closeOnError();
-            return;
-        }
-
-        String[] sandwiches = getResources().getStringArray(R.array.sandwich_details);
-        String json = sandwiches[position];
-        Sandwich sandwich = JsonUtils.parseSandwichJson(json);
-        if (sandwich == null) {
-            // Sandwich data unavailable
-            closeOnError();
-            return;
-        }
-
-        populateUI();
-        Picasso.with(this)
-                .load(sandwich.getImage())
-                .into(ingredientsIv);
-
-        setTitle(sandwich.getMainName());
     }
 
     private void closeOnError() {
