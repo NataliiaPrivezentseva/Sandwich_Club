@@ -24,13 +24,7 @@ public class JsonUtils {
             }
             JSONArray alsoKnownAsArray = name.getJSONArray("alsoKnownAs");
             if (alsoKnownAsArray != null && alsoKnownAsArray.length() > 0) {
-                ArrayList<String> alsoKnownAs = new ArrayList<>();
-                for (int i = 0; i < alsoKnownAsArray.length(); i++) {
-                    String element = alsoKnownAsArray.getString(i);
-                    if (element != null && !element.isEmpty()) {
-                        alsoKnownAs.add(element);
-                    }
-                }
+                ArrayList<String> alsoKnownAs = convertJsonArrayToArrayList(alsoKnownAsArray);
                 if (!alsoKnownAs.isEmpty()) {
                     sandwich.setAlsoKnownAs(alsoKnownAs);
                 }
@@ -53,13 +47,7 @@ public class JsonUtils {
 
             JSONArray ingredientsArray = sandwichJson.getJSONArray("ingredients");
             if (ingredientsArray != null && ingredientsArray.length() > 0) {
-                ArrayList<String> ingredients = new ArrayList<>();
-                for (int i = 0; i < ingredientsArray.length(); i++) {
-                    String element = ingredientsArray.getString(i);
-                    if (element != null && !element.isEmpty()) {
-                        ingredients.add(element);
-                    }
-                }
+                ArrayList<String> ingredients = convertJsonArrayToArrayList(ingredientsArray);
                 if (!ingredients.isEmpty()) {
                     sandwich.setIngredients(ingredients);
                 }
@@ -68,5 +56,16 @@ public class JsonUtils {
             e.printStackTrace();
         }
         return sandwich;
+    }
+
+    private static ArrayList<String> convertJsonArrayToArrayList(JSONArray jsonArray) throws JSONException {
+        ArrayList<String> arrayList = new ArrayList<>();
+        for (int i = 0; i < jsonArray.length(); i++) {
+            String element = jsonArray.getString(i);
+            if (element != null && !element.isEmpty()) {
+                arrayList.add(element);
+            }
+        }
+        return arrayList;
     }
 }
