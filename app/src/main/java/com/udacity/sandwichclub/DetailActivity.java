@@ -72,16 +72,16 @@ public class DetailActivity extends AppCompatActivity {
         TextView ingredientsTv = findViewById(R.id.ingredients_tv);
 
         if (sandwich.getAlsoKnownAs() != null) {
+            StringBuilder alsoKnown = new StringBuilder();
             for (String s : sandwich.getAlsoKnownAs()) {
-                StringBuilder alsoKnown = new StringBuilder();
                 if (!s.isEmpty()) {
                     alsoKnownAsLabel.setVisibility(View.VISIBLE);
                     alsoKnownAsTv.setVisibility(View.VISIBLE);
                     alsoKnown.append(s).append("\n");
                 }
-                String alsoKnownString = alsoKnown.toString().trim();
-                alsoKnownAsTv.setText(alsoKnownString);
             }
+            String alsoKnownString = alsoKnown.toString().trim();
+            alsoKnownAsTv.setText(alsoKnownString);
         } else {
             alsoKnownAsLabel.setVisibility(View.GONE);
             alsoKnownAsTv.setVisibility(View.GONE);
@@ -106,16 +106,17 @@ public class DetailActivity extends AppCompatActivity {
         }
 
         if (sandwich.getIngredients() != null) {
+            StringBuilder ingredients = new StringBuilder();
+
             for (String s : sandwich.getIngredients()) {
-                StringBuilder ingredients = new StringBuilder();
                 if (!s.isEmpty()) {
                     ingredientsLabel.setVisibility(View.VISIBLE);
                     ingredientsTv.setVisibility(View.VISIBLE);
                     ingredients.append(s).append("\n");
                 }
-                String ingredientsString = ingredients.toString().trim();
-                ingredientsTv.append(ingredientsString);
             }
+            String ingredientsString = ingredients.toString().trim();
+            ingredientsTv.setText(ingredientsString);
         } else {
             ingredientsLabel.setVisibility(View.GONE);
             ingredientsTv.setVisibility(View.GONE);
