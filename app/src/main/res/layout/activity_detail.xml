@@ -24,6 +24,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/also_known_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_also_known_as_label"
@@ -36,6 +37,7 @@
                 style="@style/MultilineTextView"/>
 
             <TextView
+                android:id="@+id/origin_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_place_of_origin_label"
@@ -49,6 +51,7 @@
 
 
             <TextView
+                android:id="@+id/description_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_description_label"
@@ -62,6 +65,7 @@
 
 
             <TextView
+                android:id="@+id/ingredients_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_ingredients_label"
@@ -71,7 +75,8 @@
                 android:id="@+id/ingredients_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/MultilineTextView"/>
+                style="@style/MultilineTextView"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
         </LinearLayout>
     </LinearLayout>

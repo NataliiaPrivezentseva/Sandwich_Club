@@ -5,5 +5,5 @@
     <dimen name="label_text_size">18sp</dimen>
     <dimen name="multiline_text_size">14sp</dimen>
     <dimen name="multiline_text_view_big_padding">24dp</dimen>
-    <dimen name="multiline_text_view_small_padding">8dp</dimen>
+    <dimen name="multiline_text_view_small_padding">16dp</dimen>
 </resources>
